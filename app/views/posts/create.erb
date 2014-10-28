@@ -1,20 +1,53 @@
-<h1>Create New Post</h1>
+<script>
+$(document).ready(function(){
+  $("#create_new").submit(function(e){
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action");
+    $.ajax(
+    {
+        url : formURL,
+        type: "POST",
+        data : postData,
+        success:function(result)
+        {
+          $("#content").html(result);
+          //debugger
+            //data: return data from server
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+          //debugger
+            //if fails
+        }
 
-<form role="form" action="/posts/create" method="post">
-  <div class="form-group">
-    <label for="inputTitle">Title</label>
-    <input name="post[title]" type="text" class="form-control" id="inputTitle" placeholder="Enter title">
-  </div>
 
-  <div class="form-group">
-    <label for="inputContent">Content</label>
-    <textarea name="post[content]" class="form-control" id="inputContent" placeholder="Enter content" rows="8"></textarea>
-  </div>
+    });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+  });
 
-  <div class="form-group">
-    <label for="inputTags">Tags</label>
-    <input name="tags" type="text" class="form-control" id="inputTags" placeholder="Enter tags">
-  </div>
 
-  <button value="submit" class="btn btn-default">Create New Post</button>
-</form>
+});
+</script>
+<div id="content">
+  <h1>Create New Post</h1>
+
+  <form id="create_new" role="form" action="/posts/create" method="post">
+    <div class="form-group">
+      <label for="inputTitle">Title</label>
+      <input name="post[title]" type="text" class="form-control" id="inputTitle" placeholder="Enter title">
+    </div>
+
+    <div class="form-group">
+      <label for="inputContent">Content</label>
+      <textarea name="post[content]" class="form-control" id="inputContent" placeholder="Enter content" rows="8"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="inputTags">Tags</label>
+      <input name="tags" type="text" class="form-control" id="inputTags" placeholder="Enter tags">
+    </div>
+
+    <button value="submit" class="btn btn-default">Create New Post</button>
+  </form>
+</div>

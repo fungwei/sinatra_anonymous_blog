@@ -68,7 +68,7 @@ post '/posts/create' do
       temp_post.tags << temp_tag
     end
   end
-  redirect "posts/list"
+  redirect "posts/view/#{temp_post.id}"
 end
 
 
