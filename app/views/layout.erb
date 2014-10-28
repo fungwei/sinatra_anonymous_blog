@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -14,10 +14,22 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-  <title></title>
+  <title>My Awesome Anonymous Blog</title>
 </head>
+
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <a href="/posts/list"><button type="button" class="btn btn-default navbar-btn">List All Post</button></a>
+    <a href="/tags/"><button type="button" class="btn btn-default navbar-btn">List All Tags</button></a>
+    <a href="/posts/create"><button type="button" class="btn btn-default navbar-btn">Create New Post</button></a>
+  </div>
+</nav>
+  <div class="container">
   <%= yield %>
+  </div>
 </body>
 </html>

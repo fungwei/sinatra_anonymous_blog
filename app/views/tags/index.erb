@@ -1,0 +1,9 @@
+<h1>All the awesome Tags</h1>
+
+<% @tags_sorted.each do |tag| %>
+
+ <p><a href="/tags/<%= tag.name %>"><%= tag.name %></a></p>
+
+
+<br>
+<% end %>

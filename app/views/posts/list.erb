@@ -1,0 +1,13 @@
+<h1>All the awesome post from my Anonymous Blog</h1>
+
+<% @posts.each do |post| %>
+<div class="post">
+ <h2><a href="/posts/view/<%= post.id %>"><%= post.title %></a></h2>
+ <p><%= post.content %></p>
+ <p>Tags: <% post.tags.each do |tag| %>
+    <a href="/tags/<%= tag.name %>"><%= tag.name %></a>
+ <% end %>
+</p>
+</div>
+<br>
+<% end %>
