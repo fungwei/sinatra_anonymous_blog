@@ -2,7 +2,7 @@
 
 <% @tags_sorted.each do |tag| %>
 
- <p><a href="/tags/<%= tag.name %>"><%= tag.name %></a></p>
+ <p><a href="/tags/<%= tag.name %>"><%= tag.name %></a> (Post Count: <%= tag.posts.count %>)</p>
 
 
 <br>
